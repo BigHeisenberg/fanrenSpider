@@ -1,0 +1,7 @@
+utils\GetProperties.class
+utils\SendMailUtils$1.class
+utils\SpiderUtils.class
+pojo\Books.class
+main\MainScheduler.class
+utils\SendMailUtils.class
+utils\ConnectionUtils.class
