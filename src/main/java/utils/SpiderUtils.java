@@ -150,7 +150,7 @@ public class SpiderUtils implements Job {
         book1.setTitle(title);
         book1.setUpdateTime(updateTime);
         SendMailUtils sendMailUtils = new SendMailUtils();//调用发送邮件工具类
-        sendMailUtils.SendMail(books);
+        sendMailUtils.SendMail(book1);
     }
 
     public static void main(String[] args) {
