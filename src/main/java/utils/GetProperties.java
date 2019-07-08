@@ -15,6 +15,8 @@ public class GetProperties {
     public static String SMTP_163_PORT = "";  //网易163邮箱端口
     public static String MEAIL_QQ_SMTP_HOST = ""; //QQ邮箱SMTP服务器地址
     public static String SMTP_QQ_PORT = "";   //QQ邮箱端口
+    public static String SERVERCHAN_SCKEY ="";  //Server酱SCKEY
+    public static String SERVERCHAN_SCKEY_URL="";   //Server酱URL
 
     static {
         try {
@@ -31,6 +33,8 @@ public class GetProperties {
             SMTP_163_PORT = props.getProperty("SMTP_163_PORT");
             MEAIL_QQ_SMTP_HOST = props.getProperty("MEAIL_QQ_SMTP_HOST");
             SMTP_QQ_PORT = props.getProperty("SMTP_QQ_PORT");
+            SERVERCHAN_SCKEY = props.getProperty("SERVERCHAN_SCKEY");
+            SERVERCHAN_SCKEY_URL = props.getProperty("SERVERCHAN_SCKEY_URL");
         } catch (IOException e) {
             e.printStackTrace();
         }

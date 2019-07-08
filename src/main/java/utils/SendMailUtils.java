@@ -14,7 +14,6 @@ import java.util.Properties;
 public class SendMailUtils {
     private static Logger LOG = LoggerFactory.getLogger(SendMailUtils.class);
 
-
     public void SendMail(Books books)
     {
         Properties p = new Properties();
@@ -39,7 +38,7 @@ public class SendMailUtils {
                 return new PasswordAuthentication(GetProperties.MY_EMAIL_ACCOUNT,GetProperties.MY_EMAIL_PASSWORD);
             }
         });
-//        session.setDebug(true);
+        session.setDebug(true);
         LOG.info("邮箱已登录成功，开始创建邮件内容");
         MimeMessage message = new MimeMessage(session);
         try {
@@ -55,12 +54,20 @@ public class SendMailUtils {
             }else if(books.getUrl().indexOf(GetProperties.TOPBOOK_URL)!=-1){
                 webName = "顶点小说站";
             }
+            String pushtext="南宫婉温馨提醒：今日"+ books.getaMOrPm() + "章节已更新";
+            String pushdesp="**来源：" + webName+
+                    "** %0D%0A%0D%0A **更新时间：" + books.getUpdateTime()+"** %0D%0A%0D%0A **更新地址：["+
+                    books.getTitle()+"](" + books.getUrl() +")**";//Markdown语法
+            String push = "text="+pushtext+"&desp="+pushdesp;
+            LOG.info("推送至Server酱内容：" + push);
             message.setSubject("南宫婉温馨提醒：今日" +webName+ books.getaMOrPm() + "章节已更新");     //设置邮件主题
             message.setContent("<h1>更新时间：" + books.getUpdateTime() + "<br> 更新地址: <a href=\"" + books.getUrl() + "\">" + books.getTitle() + "</a></h1>", "text/html;charset=UTF-8");//设置邮件内容
             message.setSentDate(new Date());
             message.saveChanges();
             LOG.info("邮件内容编写完毕，开始发送邮件给" + GetProperties.RECEIVE_EMAIL_ACCOUNT);
             Transport.send(message);    //发送邮件
+            WXPushUtils wxPush= new WXPushUtils();
+            wxPush.WXPush(push);    //调用Server酱推送至微信
         } catch (MessagingException e) {
             e.printStackTrace();
         }

@@ -19,7 +19,7 @@ public class MainScheduler
         JobDetail jobDetail = JobBuilder.newJob(SpiderUtils.class).withIdentity("job1", "group1").build();//启动类
 
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group3")
-                .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(600).repeatForever())//10分钟启动一次
+                .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(300).repeatForever())//10分钟启动一次
                 .build();
         Scheduler scheduler = getScheduler();
 

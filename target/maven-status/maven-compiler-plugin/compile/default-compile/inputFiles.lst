@@ -1,6 +1,8 @@
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\utils\SendMailUtils.java
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\utils\ConnectionUtils.java
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\utils\GetProperties.java
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\utils\SpiderUtils.java
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\pojo\Books.java
-D:\Development\Study\Spider\aaa\fanrenSpider\src\main\java\main\MainScheduler.java
+D:\Development\Study\Spider\src\main\java\utils\SpiderUtils.java
+D:\Development\Study\Spider\src\main\java\main\MainScheduler.java
+D:\Development\Study\Spider\src\main\java\pojo\Books.java
+D:\Development\Study\Spider\src\main\java\utils\SendMailUtils.java
+D:\Development\Study\Spider\src\main\java\utils\WXPushUtils.java
+D:\Development\Study\Spider\src\main\java\utils\GetProperties.java
+D:\Development\Study\Spider\src\main\java\utils\HttpRequestUtils.java
+D:\Development\Study\Spider\src\main\java\utils\ConnectionUtils.java

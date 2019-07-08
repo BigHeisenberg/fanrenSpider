@@ -68,21 +68,23 @@ public class SpiderUtils implements Job {
                 bqUrlList.add(lib.attr("href"));
             }
             String bqUrlHead = "https://m.biquke.com";
-            if (books.getSendMailTag() <1 && bqAmSub == 1 && bqPmSub!=1) {
+            if (books.getSendMailTag() ==0 && bqAmSub == 1 && bqPmSub !=1) {
                 LOG.info("百趣阁网站今日中午文章已更新，"+ "网站更新时间为：" + bqTime);
                 getBook(bqUrlHead + bqUrlList.get(0).toString(), bqTime, "中午");
                 books.setSendMailTag(1);
             }else if (books.getSendMailTag() ==0 && bqAmSub == 1 && bqPmSub == 1) {
+                LOG.info("百趣阁网站今日下午文章已更新，"+ "网站更新时间为：" + bqTime);
+                getBook(bqUrlHead + bqUrlList.get(0).toString(), bqTime, "下午");
                 books.setSendMailTag(2);
             }else if (books.getSendMailTag() ==1 && bqAmSub == 1 && bqPmSub == 1) {
                 LOG.info("百趣阁网站今日下午文章已更新，"+ "网站更新时间为：" + bqTime);
                 getBook(bqUrlHead + bqUrlList.get(0).toString(), bqTime, "下午");
                 books.setSendMailTag(2);
-            }else if (books.getSendMailTag() <1 && bqAmSub !=1 && bqPmSub !=1) {
+            }else if (books.getSendMailTag() ==0 && bqAmSub !=1 && bqPmSub !=1) {
                 LOG.info( "百趣阁网站今日中午文章还未更新，" + "网站更新时间为：" + bqTime);
             }else if (books.getSendMailTag() ==1 && bqAmSub ==1 && bqPmSub !=1) {
                 LOG.info( "百趣阁网站今日下午文章还未更新，" + "网站更新时间为：" + bqTime);
-            }else if (books.getSendMailTag() ==2 && (bqAmSub == 1) || (bqPmSub == 1)) {
+            }else if (books.getSendMailTag() ==2 && (bqAmSub == 1) && (bqPmSub == 1)) {
                 LOG.info( "百趣阁网站今日文章均更新完毕，" + "网站更新时间为：" + bqTime);
             }
 
@@ -96,21 +98,23 @@ public class SpiderUtils implements Job {
                 topUrlList.add(lit.attr("href"));
             }
             String topUrlHead = "https://wap.dingdiann.com";
-            if (books.getSendMailTag() <1 && topAmSub == 1 && topPmSub != 1) {
+            if (books.getSendMailTag() ==0 && topAmSub == 1 && topPmSub != 1) {
                 LOG.info("顶点小说网站今日中午文章已更新，"+ "网站更新时间为：" + topTime);
                 getBook(topUrlHead + topUrlList.get(0).toString(), topTime, "中午");
                 books.setSendMailTag(1);
             } else if (books.getSendMailTag() ==0 && topAmSub == 1 && topPmSub == 1) {
+                LOG.info("顶点小说网站今日下午文章已更新，"+ "网站更新时间为：" + topTime);
+                getBook(topUrlHead + topUrlList.get(0).toString(), topTime, "下午");
                 books.setSendMailTag(2);
             } else if ( books.getSendMailTag() ==1 && topAmSub == 1 && topPmSub == 1) {
                 LOG.info("顶点小说网站今日下午文章已更新，"+ "网站更新时间为：" + topTime);
                 getBook(topUrlHead + topUrlList.get(0).toString(), topTime, "下午");
                 books.setSendMailTag(2);
-            }else if (books.getSendMailTag() <1 && topAmSub !=1 && topPmSub !=1) {
+            }else if (books.getSendMailTag() ==0 && topAmSub !=1 && topPmSub !=1) {
                 LOG.info( "顶点小说网站今日中午文章还未更新，" + "网站更新时间为：" + topTime);
             }else if (books.getSendMailTag() ==1 && topAmSub ==1 && topPmSub !=1) {
                 LOG.info( "顶点小说网站今日下午文章还未更新，" + "网站更新时间为：" + topTime);
-            }else if (books.getSendMailTag() ==2 && (topAmSub == 1) || (topPmSub == 1)) {
+            }else if (books.getSendMailTag() ==2 && (topAmSub == 1) && (topPmSub == 1)) {
                 LOG.info( "顶点小说网站今日文章均更新完毕，" + "网站更新时间为：" + topTime);
             }
         }
@@ -154,8 +158,12 @@ public class SpiderUtils implements Job {
     }
 
     public static void main(String[] args) {
-        SpiderUtils spider = new SpiderUtils();
-        spider.getUrlList();
+//        SpiderUtils spider = new SpiderUtils();
+//        spider.getUrlList();
+//        WXPushUtils wxPush= new WXPushUtils();
+//        String pushtext="text=南宫婉温馨提醒：今日下午章节已更新&desp=**来源：顶点小说站** %0D%0A%0D%0A **更新时间：2019-07-08 19:42:25** %0D%0A%0D%0A **更新地址：[第九百九十一章 无能为力](https://wap.dingdiann.com/ddk38807/2660942.html)**";
+//        wxPush.WXPush(pushtext);
+
     }
 
 }
