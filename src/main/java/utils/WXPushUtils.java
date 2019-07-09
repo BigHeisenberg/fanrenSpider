@@ -11,8 +11,7 @@ import java.util.Map;
 
 public class WXPushUtils {
     private static Logger LOG = LoggerFactory.getLogger(WXPushUtils.class);
-    public static HttpRequestUtils httpRequestUtils = new HttpRequestUtils();
-
+    
     /**
      * 调用Server酱推送至微信
      * Server酱介绍：https://sc.ftqq.com
@@ -20,6 +19,7 @@ public class WXPushUtils {
      */
     public void WXPush(String pushtext) {
         String requestUrl = GetProperties.SERVERCHAN_SCKEY_URL;
+        HttpRequestUtils httpRequestUtils = new HttpRequestUtils();
         String json = httpRequestUtils.sendPost(requestUrl, pushtext);
         LOG.info("Server酱返回消息：" + json);
 
