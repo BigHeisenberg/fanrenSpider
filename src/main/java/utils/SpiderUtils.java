@@ -20,7 +20,6 @@ import java.util.List;
 
 public class SpiderUtils implements Job {
     private static Logger LOG = LoggerFactory.getLogger(SpiderUtils.class);
-    private static ConnectionUtils connectionUtils = new ConnectionUtils();
     private static Books books = new Books();
     public void execute(JobExecutionContext context) throws JobExecutionException {
         SpiderUtils spider = new SpiderUtils();
@@ -29,6 +28,7 @@ public class SpiderUtils implements Job {
 
 
     public void getUrlList() {
+        ConnectionUtils connectionUtils = new ConnectionUtils();
         Document biquDcument = connectionUtils.Connect(GetProperties.BIQUBOOK_UPDATE_URL);//笔趣阁更新地址
         Document topDcument = connectionUtils.Connect(GetProperties.TOPBOOK_UPDATE_URL);//顶点小说更新地址
 
@@ -121,6 +121,7 @@ public class SpiderUtils implements Job {
     }
 
     public void getBook(String url, String updateTime, String amOrPm) {
+        ConnectionUtils connectionUtils = new ConnectionUtils();
         Document document = connectionUtils.Connect(url);
         String title = "";
         Elements elements = null;
